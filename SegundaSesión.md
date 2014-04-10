@@ -9,14 +9,14 @@ El módulo genera cromosomas de un determinado número de genes (a elegir) y lo 
 
 Algorithm::Evolutionary::Simple  | Implementación Paloma
 ---------------------------------|------------------------------
- sub random_chromosome {	 | sub mi__cromosoma {
- my $length = shift;		 | my $longitud = shift;
- my $string = '';		 | my @cadena = ();
- for (1..$length) {		 | for my $i (0 .. $longitud) {	
-   $string .= (rand >0.5)?1:0;	 |   $cadena[$i] = int(rand(2));	
- }				 | }	
- $string;			 | return @cadena;
-}                                | }
+```sub random_chromosome {	 | ```sub mi__cromosoma {
+ my $length = shift;		   my $longitud = shift;
+ my $string = '';		   my @cadena = ();
+ for (1..$length) {		   for my $i (0 .. $longitud) {	
+   $string .= (rand >0.5)?1:0;	     $cadena[$i] = int(rand(2));	
+ }				   }	
+ $string;			   return @cadena;
+}```                               }```
 
 Los tiempos de generación se han medido así:
 
