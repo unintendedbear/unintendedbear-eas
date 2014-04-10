@@ -35,10 +35,12 @@ sub mi_cromosoma {
 
 Los tiempos de generación se han medido así:
 
-`my ($s0, $us0) = [gettimeofday];`
+```perl
+my ($s0, $us0) = [gettimeofday];
 #Generación de población
-`my ($s1, $us1) = [gettimeofday];`
-`my $tiempo_generacion_cromosoma = tv_interval (($s0, $us0), ($s1, $us1));`
+my ($s1, $us1) = [gettimeofday];
+my $tiempo_generacion_cromosoma = tv_interval (($s0, $us0), ($s1, $us1));
+```
 
 Entonces, el programa se llama de la manera: `EA_Paloma.pl numero_genes tamaño_población` y se obtienen dos poblaciones de individuos, de tamaño `tamaño_población` y con `numero_genes` genes.
 
