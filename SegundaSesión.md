@@ -7,16 +7,31 @@ En mi script: `EA_Paloma.pl` realizo una comparativa entre el módulo anterior y
 
 El módulo genera cromosomas de un determinado número de genes (a elegir) y lo devuelve en forma de cadena de caracteres. Por otro lado, yo he decidido crear un array del tamaño de genes y en cada posición un gen que aleatoriamente es 0 ó 1.
 
-Algorithm::Evolutionary::Simple  | Implementación Paloma
----------------------------------|------------------------------
-```sub random_chromosome {	 | ```sub mi__cromosoma {
- my $length = shift;		   my $longitud = shift;
- my $string = '';		   my @cadena = ();
- for (1..$length) {		   for my $i (0 .. $longitud) {	
-   $string .= (rand >0.5)?1:0;	     $cadena[$i] = int(rand(2));	
- }				   }	
- $string;			   return @cadena;
-}```                               }```
+###### Algorithm::Evolutionary::Simple
+
+```perl
+sub random_chromosome {
+  my $length = shift;
+  my $string = '';
+  for (1..$length) {
+    $string .= (rand >0.5)?1:0;	
+  }
+  $string;
+}
+```
+
+###### Implementación Paloma
+
+```perl
+sub mi_cromosoma {
+  my $longitud = shift;
+  my @cadena = ();
+  for my $i (0 .. $longitud) {
+    $cadena[$i] = int(rand(2));
+  }
+  return @cadena;
+}
+```
 
 Los tiempos de generación se han medido así:
 
