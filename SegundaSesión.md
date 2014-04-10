@@ -32,9 +32,7 @@ Los tiempos que se obtienen son:
  Tamaño población | Algorithm::Evolutionary::Simple    | Implementación Paloma
 ------------------|------------------------------------|------------------------
  	100 	  |		0.000294 segundos      | 0.000442 segundos 
-------------------|------------------------------------|------------------------
  	1000 	  |  		0.00216 segundos       | 0.004022 segundos 
-------------------|------------------------------------|------------------------
  	1000 	  |  		0.022526 segundos      | 0.037748 segundos 
 
 Como conclusión, se obtienen tiempos más grandes cuando se generan las poblaciones con los individuos expresados como arrays.
