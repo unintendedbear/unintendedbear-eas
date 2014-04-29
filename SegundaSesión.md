@@ -50,6 +50,52 @@ Los tiempos que se obtienen son:
 ------------------|------------------------------------|------------------------
  	100 	  |		0.000294 segundos      | 0.000442 segundos 
  	1000 	  |  		0.00216 segundos       | 0.004022 segundos 
- 	1000 	  |  		0.022526 segundos      | 0.037748 segundos 
+ 	10000	  |  		0.022526 segundos      | 0.037748 segundos 
 
 Como conclusión, se obtienen tiempos más grandes cuando se generan las poblaciones con los individuos expresados como arrays.
+
+Sesión del 29-04-14
+==================
+
+Fitness es la función que definimos para escoger qué individuos son mejores. En este caso estamos eligiendo como mejor individuo aquel que se genere con un mayor número de unos. Vamos a enfrentar dos maneras de calcular `MAX_ONE`, la propia de `Algorithm::Evolutionary::Simple` y una segunda propuesta por mí. 
+
+###### Algorithm::Evolutionary::Simple
+
+```perl
+sub max_ones {
+  my $str=shift;
+  my $count = 0;
+  while ($str) {
+    $count += chop($str);
+  }
+  $count;
+}
+```
+
+###### Implementación Paloma
+
+```perl
+sub mi_fitness {
+  my $cadena = shift;
+  my @contador = ($cadena =~ /1/g);
+  return @contador;
+}
+```
+
+Se ha comprobado los tiempos en medir el fitness de una población en su generación. La población es de 100 individuos y lo que se va cambiando es la cantidad de genes del individuo.
+
+Los tiempos que se obtienen son:
+
+ Tamaño cromosoma | Algorithm::Evolutionary::Simple    | Implementación Paloma
+------------------|------------------------------------|------------------------
+ 	10 	  |		0.000133 segundos      | 0.000244 segundos 
+ 	100 	  |		0.00081 segundos       | 0.001553 segundos 
+ 	1000 	  |  		0.008078 segundos      | 0.015832 segundos 
+ 	10000	  |  		0.091047 segundos      | 0.151987 segundos 
+
+Por tanto, el uso de expresiones regulares, aunque haga el método más corto, hace que suba el tiempo de ejecución.
+
+
+
+
+
